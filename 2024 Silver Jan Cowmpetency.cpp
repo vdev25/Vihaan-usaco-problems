@@ -47,7 +47,8 @@ vector<int> solve(vector<int> scores, const vector<pair<int, int>>& pairs, int m
         }
 
         if (smallmax < bigmax) {
-            for (int j = k; j >= 0; j = j - 1) {
+            bool found = false;
+            for (int j = k; j >= 1; j = j - 1) {
                 if (greatercow[j] != -1 && greatercow[j] < greatercow[k]) {
                     return fail;
                 }
@@ -56,7 +57,11 @@ vector<int> solve(vector<int> scores, const vector<pair<int, int>>& pairs, int m
                 }
                 scores[j] = bigmax;
                 smallmax = bigmax;
+                found = true;
                 break;
+            }
+            if (!found) {
+                return fail;
             }
         }
 
