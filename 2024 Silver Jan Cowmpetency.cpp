@@ -113,13 +113,19 @@ int main() {
 
     }
 
-    for (vector<int> k : ans) {
-        for (int l : k) {
-            if (l != 0) {
-                cout << l << " ";
+    for (int k = 0; k < ans.size(); k = k + 1) {
+        for (int l = 0; l < ans[k].size(); l = l + 1) {
+            if (ans[k][l] == 0) {
+                continue;
+            }
+            cout << ans[k][l];
+            if (l != ans[k].size() - 1) {
+                cout << " ";
             }
         }
-        cout << endl;
+        if (k != ans.size() - 1) {
+            cout << endl;
+        }
     }
 
     return 0;
